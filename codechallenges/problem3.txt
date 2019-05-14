@@ -1,0 +1,24 @@
+Problem 3
+
+Create a REST client that do currency conversion from USD(dollars) to BRL(reals)
+
+API that can be used for this conversion (but others can be used too):
+
+https://exchangeratesapi.io
+
+Round to 2 decimal points (when applicable).
+
+Input:
+
+An integer correspinding to the amount of USD to convert to BRL
+
+Out:
+
+The converted currency value to BRL
+
+Example:
+
+convertToReals(5)
+
+"5 USD correspond to 19.92 BRL"
+
