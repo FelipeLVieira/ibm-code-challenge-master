@@ -44,6 +44,7 @@ public class Warrior {
         BattleController battleController = new BattleController();
         BattleResult battleResult = battleController.handleBattle(this.level, level);
         handleLevelUp(battleResult.getExperience());
+        System.out.println(battleResult.getMessage());
         return battleResult.getMessage();
     }
 
@@ -51,10 +52,18 @@ public class Warrior {
         int previousLevelRefecence = this.experience/100;
         int newLevelReference = (this.experience + experienceEarned)/100;
         this.experience += experienceEarned;
-        this.level = newLevelReference - previousLevelRefecence;
+
+        if (newLevelReference - previousLevelRefecence > 0){
+            this.level = newLevelReference - previousLevelRefecence;
+            this.rank = new RankController().getRankByLevel(this.level);
+        }
     }
 
-    public String training(List<Object> enemy){
+    public String training(String challenge, int experience, int levelRequirement){
+        if(this.level < levelRequirement){
+            System.out.println("Not strong enough");
+            return "Not strong enough";
+        }
         return "";
     }
 
