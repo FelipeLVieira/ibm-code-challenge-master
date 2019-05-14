@@ -2,13 +2,12 @@ package problem1;
 
 
 import java.util.ArrayList;
-import java.util.ListIterator;
 
 public class WarnTheSheepProblem {
 
     void warnTheSheep(String[] arr){
 
-        if(arr[arr.length-1].equals("wolf")){
+        if(arr[arr.length-1].equalsIgnoreCase("wolf")){
             System.out.println("Pls go away and stop eating my sheep");
             return;
         }
@@ -27,7 +26,7 @@ public class WarnTheSheepProblem {
 
     void warnTheSheep(ArrayList<String> arr){
 
-        if(arr.get(arr.size()-1).equals("wolf")){
+        if(arr.get(arr.size()-1).equalsIgnoreCase("wolf")){
             System.out.println("Pls go away and stop eating my sheep");
             return;
         }
