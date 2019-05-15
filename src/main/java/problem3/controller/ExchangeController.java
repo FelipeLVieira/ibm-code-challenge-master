@@ -8,7 +8,7 @@ import problem3.service.ExchangeService;
 import java.math.BigDecimal;
 
 @RestController
-@RequestMapping(value = "/exchange")
+@RequestMapping(value = "exchange")
 public class ExchangeController {
 
     ExchangeService exchangeService;
