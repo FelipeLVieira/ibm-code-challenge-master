@@ -18,7 +18,7 @@ public class Main {
         ExchangeService exchangeService = new ExchangeService(parameterService);
 
         try {
-            BigDecimal convertedValue = exchangeService.convert(BASE_CURRENCY, BASE_CURRENCY, valueToConvert);
+            BigDecimal convertedValue = exchangeService.convert(BASE_CURRENCY, TARGET_CURRENCY, valueToConvert);
             System.out.println("======================================================================================================");
             System.out.println("\n The value " + valueToConvert + " " + BASE_CURRENCY + " is equivalent to " + convertedValue + " " + TARGET_CURRENCY);
             System.out.println("\n======================================================================================================");
