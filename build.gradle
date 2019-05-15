@@ -15,6 +15,7 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     annotationProcessor("org.projectlombok:lombok:1.16.20")
     compileOnly("org.projectlombok:lombok:1.16.20")
