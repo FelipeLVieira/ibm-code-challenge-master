@@ -3,6 +3,7 @@ plugins {
     id 'java'
 }
 
+apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 group = 'com.ibm.codechallenge'

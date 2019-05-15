@@ -26,23 +26,23 @@ public class Warrior {
     }
 
     public int getLevel() {
-        System.out.println(level);
-        return level;
+        System.out.println(this.level);
+        return this.level;
     }
 
     public int getExperience() {
-        System.out.println(experience);
-        return experience;
+        System.out.println(this.experience);
+        return this.experience;
     }
 
     public String getRank() {
-        System.out.println(rank);
-        return rank;
+        System.out.println(this.rank);
+        return this.rank;
     }
 
     public List<String> getAchievements() {
-        System.out.println(achievements);
-        return achievements;
+        System.out.println(this.achievements);
+        return this.achievements;
     }
 
     public String battle(int enemyLevel){
@@ -57,8 +57,8 @@ public class Warrior {
     }
 
     private void handleLevelUp(int experienceEarned){
-        int previousLevelRefecence = experience/100;
-        int newLevelReference = (experience + experienceEarned)/100;
+        int previousLevelRefecence = this.experience/100;
+        int newLevelReference = (this.experience + experienceEarned)/100;
 
         this.experience += experienceEarned;
 
