@@ -1,9 +1,10 @@
 package problem2.warrior;
 
-import problem2.battle.BattleController;
 import problem2.battle.BattleResult;
-import problem2.rank.RankController;
+import problem2.battle.BattleService;
+import problem2.rank.RankService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Warrior {
@@ -20,42 +21,50 @@ public class Warrior {
     private void initializeWarrior(){
         this.level = 1;
         this.experience = 100;
-        this.rank = new RankController().getRankByLevel(this.level);
+        this.rank = new RankService().getRankTierByLevel(this.level);
+        this.achievements = new ArrayList<>();
     }
 
     public int getLevel() {
+        System.out.println(level);
         return level;
     }
 
     public int getExperience() {
+        System.out.println(experience);
         return experience;
     }
 
     public String getRank() {
+        System.out.println(rank);
         return rank;
     }
 
     public List<String> getAchievements() {
+        System.out.println(achievements);
         return achievements;
     }
 
-    public String battle(int level){
+    public String battle(int enemyLevel){
 
-        BattleController battleController = new BattleController();
-        BattleResult battleResult = battleController.handleBattle(this.level, level);
+        BattleService battleService = new BattleService();
+        BattleResult battleResult = battleService.handleBattle(this.level, enemyLevel);
+
         handleLevelUp(battleResult.getExperience());
+
         System.out.println(battleResult.getMessage());
         return battleResult.getMessage();
     }
 
     private void handleLevelUp(int experienceEarned){
-        int previousLevelRefecence = this.experience/100;
-        int newLevelReference = (this.experience + experienceEarned)/100;
+        int previousLevelRefecence = experience/100;
+        int newLevelReference = (experience + experienceEarned)/100;
+
         this.experience += experienceEarned;
 
         if (newLevelReference - previousLevelRefecence > 0){
-            this.level = newLevelReference - previousLevelRefecence;
-            this.rank = new RankController().getRankByLevel(this.level);
+            this.level += newLevelReference - previousLevelRefecence;
+            this.rank = new RankService().getRankTierByLevel(this.level);
         }
     }
 
@@ -64,7 +73,13 @@ public class Warrior {
             System.out.println("Not strong enough");
             return "Not strong enough";
         }
-        return "";
+
+        handleLevelUp(experience);
+
+        this.achievements.add(challenge);
+
+        System.out.println(challenge);
+        return challenge;
     }
 
 }

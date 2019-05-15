@@ -1,8 +1,8 @@
 package problem2.battle;
 
-public class BattleController {
+public class BattleService {
 
-    public BattleController() {
+    public BattleService() {
     }
 
     public BattleResult handleBattle(int warriorLevel, int enemyLevel) {
